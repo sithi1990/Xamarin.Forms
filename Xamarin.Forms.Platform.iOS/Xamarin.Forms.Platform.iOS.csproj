@@ -213,6 +213,7 @@
     <Compile Include="Material\MaterialSliderRenderer.cs" />
     <Compile Include="Material\MaterialActivityIndicatorRenderer.cs" />
     <Compile Include="Renderers\ButtonLayoutManager.cs" />
+    <Compile Include="Renderers\IButtonLayoutRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\StringResources.ar.resx" />
