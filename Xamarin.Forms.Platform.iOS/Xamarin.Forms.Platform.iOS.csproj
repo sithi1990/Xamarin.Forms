@@ -212,6 +212,7 @@
     <Compile Include="Material\MaterialColors.cs" />
     <Compile Include="Material\MaterialSliderRenderer.cs" />
     <Compile Include="Material\MaterialActivityIndicatorRenderer.cs" />
+    <Compile Include="Material\MaterialStepperRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\StringResources.ar.resx" />
