@@ -6,16 +6,9 @@ using UIKit;
 
 namespace Xamarin.Forms.Platform.iOS
 {
-	public class CarouselViewRenderer
-	{
-		public CarouselViewRenderer()
-		{
-			CollectionView.VerifyCollectionViewFlagEnabled(nameof(CarouselViewRenderer));
-		}
-	}
 
 	//// TODO hartez 2018/05/30 09:05:38 Think about whether this Controller and/or the new Adapter should be internal or public
-	public class CollectionViewRenderer : ViewRenderer<CollectionView, UIView>
+	public class CollectionViewRenderer : ViewRenderer<SelectableItemsView, UIView>
 	{
 		CollectionViewController _collectionViewController;
 		ItemsViewLayout _flowLayout;
@@ -34,7 +27,7 @@ namespace Xamarin.Forms.Platform.iOS
 			return Control.GetSizeRequest(widthConstraint, heightConstraint, 0, 0);
 		}
 
-		protected override void OnElementChanged(ElementChangedEventArgs<CollectionView> e)
+		protected override void OnElementChanged(ElementChangedEventArgs<SelectableItemsView> e)
 		{
 			TearDownOldElement(e.OldElement);
 			SetUpNewElement(e.NewElement);
@@ -72,7 +65,7 @@ namespace Xamarin.Forms.Platform.iOS
 			return new ListViewLayout(new ListItemsLayout(ItemsLayoutOrientation.Vertical));
 		}
 
-		void TearDownOldElement(CollectionView oldElement)
+		protected virtual void TearDownOldElement(SelectableItemsView oldElement)
 		{
 			if (oldElement == null)
 			{
@@ -83,7 +76,7 @@ namespace Xamarin.Forms.Platform.iOS
 			oldElement.ScrollToRequested -= ScrollToRequested;
 		}
 
-		void SetUpNewElement(CollectionView newElement)
+		protected virtual void SetUpNewElement(SelectableItemsView newElement)
 		{
 			if (newElement == null)
 			{
